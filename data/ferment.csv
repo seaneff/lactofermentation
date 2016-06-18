@@ -1,1 +1,3 @@
-ferment_id,ferment_name,ferment_description,start_month,ferment_days,water_grams,salt_grams1,leeks and green onions,crispy and tangy,June,8,950,202,CSA onions,,June,,1900,41
+ferment_id,ferment_name,ferment_description,start_date,ferment_days,water_grams,salt_grams
+1,leeks and green onions,crispy and tangy,6/8/16,8,950,20
+2,CSA onions,"too salty, don't like the texture or taste of fermented leafy greens, threw away and did not eat",6/8/16,10,1900,41
