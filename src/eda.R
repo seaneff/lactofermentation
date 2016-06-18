@@ -4,6 +4,7 @@
 
 setwd("~/Documents/workspace/lactofermentation")
 library(ggplot2)
+library(scales)
 library(sqldf)
 
 #####################################################################
@@ -45,6 +46,7 @@ ggplot(ph_time, aes(x = day, y = appx_ph, group = ferment_name, col = ferment_na
   xlab("Day") +
   ylab("Approximate pH") +
   ggtitle("Change in pH over Time:\nHome Lacto-fermentation Experiments") +
-  scale_colour_discrete(name = "Ferment Name")
+  scale_colour_discrete(name = "Ferment Name") +
+  scale_x_continuous(breaks= pretty_breaks()) ## only label days as integers, since that's the unit of measurement
 dev.off()
 
