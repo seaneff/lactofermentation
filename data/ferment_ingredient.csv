@@ -1,16 +1,1 @@
-ferment_id,ingredient,source
-1,green onion,CSA: Stone Soup Farm
-1,scallion,CSA: Stone Soup Farm
-1,thai pepper (dried),NA
-1,CA bay leaf (dried),gramE's house
-2,leek,CSA: Stone Soup Farm
-2,green onion,CSA: Stone Soup Farm
-2,red onion,Whole Foods
-2,garlic,Whole Foods
-2,ginger,Shaw's
-3,green beans,Shaw's
-3,garlic,Whole Foods
-3,CA bay leaf (dried),gramE's house
-3,thai pepper (dried),NA
-3,sage (fresh),homegrown
-3,coriander seeds,homegrown
+ferment_id,ingredient,source1,green onion,CSA: Stone Soup Farm1,scallion,CSA: Stone Soup Farm1,thai pepper (dried),NA1,CA bay leaf (dried),gramE's house2,leek,CSA: Stone Soup Farm2,green onion,CSA: Stone Soup Farm2,red onion,Whole Foods2,garlic,Whole Foods2,ginger,Shaw's3,green beans,Shaw's3,garlic,Whole Foods3,CA bay leaf (dried),gramE's house3,thai pepper (dried),NA3,sage (fresh),homegrown3,coriander seeds,homegrown4,kohlrabi,CSA: Stone Soup Farm4,red beet,CSA: Stone Soup Farm4,scallion,Shaw's4,dill,CSA: Stone Soup Farm4,green onion,Shaw's
