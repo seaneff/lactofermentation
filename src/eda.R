@@ -37,7 +37,29 @@ JOIN ferment_ph AS ph
   ON f.ferment_id = ph.ferment_id")
 
 #####################################################################
-## generate figure: cange in pH over time #########################
+## generate figure: ingredients #####################################
+#####################################################################
+
+ingredient_counts <- sort(table(ferment_ingredient$ingredient))
+
+pdf("results/ingredients.pdf", height = 5, width = 6)
+par(mar = mar_default + c(0, 6, 0, 0))
+barplot(ingredient_counts,
+        horiz = TRUE,
+        las = 1,
+        cex.names = 0.8,
+        col = "palegreen3",
+        xlim = c(0, max(ingredient_counts) + 2),
+        xaxt = "n",
+        xlab = "Number of Ferments with Ingredient",
+        main = "Most Frequently Used Ingredients")
+box()
+## only integers on x-axis
+axis(1, at = 0:(max(ingredient_counts) + 2))
+dev.off()
+
+#####################################################################
+## generate figure: change in pH over time ##########################
 #####################################################################
 
 pdf("results/pH_over_time.pdf", height = 4, width = 6)
