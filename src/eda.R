@@ -26,12 +26,15 @@ ferment_ph <- read.csv("data/ferment_ph.csv")
 ## format data #####################
 ####################################
 
-## one row per ferment per day
+## salinity
+ferment$salinity <- ferment$salt_grams/ferment$water_grams
 
+## one row per ferment per day
 ph_time <- sqldf("SELECT f.ferment_id,
 f.ferment_name,
-day,
-appx_ph
+f.salinity as salinity,
+ph.day,
+ph.appx_ph
 FROM ferment AS f
 JOIN ferment_ph AS ph
   ON f.ferment_id = ph.ferment_id")
@@ -71,4 +74,23 @@ ggplot(ph_time, aes(x = day, y = appx_ph, group = ferment_name, col = ferment_na
   scale_colour_discrete(name = "Ferment Name") +
   scale_x_continuous(breaks = pretty_breaks()) ## only label days as integers, since that's the unit of measurement
 dev.off()
+
+#####################################################################
+## generate figure: change in pH over time by salinity level ########
+#####################################################################
+
+pdf("results/pH_over_time_by_salinity.pdf", height = 4, width = 6)
+ggplot(ph_time, aes(x = day, y = appx_ph, group = ferment_name, col = salinity)) +
+  geom_line() +
+  xlab("Day") +
+  ylab("Approximate pH") +
+  ggtitle("Change in pH over Time:\nHome Lacto-fermentation Experiments") +
+  scale_colour_gradient(name = "Salinity", 
+                        low = "royalblue", high = "springgreen",
+                        limits = c(min(ph_time$salinity),
+                                   max(ph_time$salinity)), 
+                        labels = percent) +
+  scale_x_continuous(breaks = pretty_breaks()) ## only label days as integers, since that's the unit of measurement
+dev.off()
+
 
