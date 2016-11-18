@@ -28,6 +28,7 @@ ferment_ph <- read.csv("data/ferment_ph.csv")
 
 ## salinity
 ferment$salinity <- ferment$salt_grams/ferment$water_grams
+ferment$salinity[which(ferment$salinity == Inf)] <- NA
 
 ## one row per ferment per day
 ph_time <- sqldf("SELECT f.ferment_id,
@@ -80,7 +81,8 @@ dev.off()
 #####################################################################
 
 pdf("results/pH_over_time_by_salinity.pdf", height = 4, width = 6)
-ggplot(ph_time, aes(x = day, y = appx_ph, group = ferment_name, col = salinity)) +
+ggplot(ph_time[-which(is.na(ph_time$salinity)),], 
+       aes(x = day, y = appx_ph, group = ferment_name, col = salinity)) +
   geom_line() +
   xlab("Day") +
   ylab("Approximate pH") +
