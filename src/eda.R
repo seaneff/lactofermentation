@@ -6,6 +6,8 @@ setwd("~/Documents/workspace/lactofermentation")
 library(ggplot2)
 library(scales)
 library(sqldf)
+library(lme4)
+library(sjPlot) ## trying out a new package
 
 #####################################################################
 ## set plotting parameters ##########################################
@@ -95,4 +97,29 @@ ggplot(ph_time[-which(is.na(ph_time$salinity)),],
   scale_x_continuous(breaks = pretty_breaks()) ## only label days as integers, since that's the unit of measurement
 dev.off()
 
+#####################################################################
+## framework for time-series modeling ###############################
+#####################################################################
 
+(ts_model <- lmer(appx_ph ~ 1 + day + ( 0 + day + I(day^2)| ferment_name),
+      data = ph_time,
+      REML = FALSE))
+
+summary(ts_model)
+
+ph_time$fit <- predict(ts_model)
+               
+## look at random slope info
+ranef(ts_model)[["ferment_name"]]
+
+## plot random effects effects
+sjp.lmer(ts_model, type = "re", sort.est = "day")
+
+pdf("results/model_fit.pdf", height = 5, width = 10)
+ggplot(ph_time, aes(day, appx_ph, group = ferment_name, col = ferment_name)) + 
+  geom_point(alpha = 0.3) +
+  geom_line(alpha = 0.8, linetype = 3, size = 0.8) +
+  geom_line(aes(y = fit, col = ferment_name), size = 0.8) +
+  scale_colour_discrete(name = "Ferment Name") + ## edit axis title
+  facet_wrap(~ ferment_name)
+dev.off()
