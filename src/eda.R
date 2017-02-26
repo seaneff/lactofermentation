@@ -129,13 +129,12 @@ dev.off()
 ## framework for time-series modeling ###############################
 #####################################################################
 
-<<<<<<< HEAD
 (ts_model <- lmer(appx_ph ~ 1 + day + I(day^2) + 
                 ( 1 + day + I(day^2) | ferment_name),
       data = ph_time,
       REML = FALSE))
 
-ph_time$fit <- predict(ts_model)
+summary(ts_model)
                
 ## look at random slope info
 ranef(ts_model)[["ferment_name"]]
@@ -144,36 +143,18 @@ ranef(ts_model)[["ferment_name"]]
 pdf("results/initial_full_model_coef.pdf", height = 5, width = 10)
 sjp.lmer(ts_model, type = "re", sort.est = "day")
 dev.off()
-=======
-(ts_model <- lmer(appx_ph ~ 1 + day + ( 0 + day + I(day^2)| ferment_name),
-      data = ph_time,
-      REML = FALSE))
-
-summary(ts_model)
 
 ph_time$fit <- predict(ts_model)
-               
-## look at random slope info
-ranef(ts_model)[["ferment_name"]]
-
-## plot random effects effects
-sjp.lmer(ts_model, type = "re", sort.est = "day")
->>>>>>> c3a28350930658b12c3ce771c5e4da8ec59678aa
 
 pdf("results/model_fit.pdf", height = 5, width = 10)
 ggplot(ph_time, aes(day, appx_ph, group = ferment_name, col = ferment_name)) + 
   geom_point(alpha = 0.3) +
-<<<<<<< HEAD
-  #geom_line(alpha = 0.8, linetype = 3, size = 0.8) +
   geom_line(aes(y = fit, col = ferment_name), size = 0.8) +
   scale_colour_discrete(name = "Ferment Name") + ## edit axis title
   ylab("pH") + 
   scale_x_continuous(labels = function (x) floor(x)) + 
   facet_wrap(~ ferment_name, scales = "free_x")
-=======
-  geom_line(alpha = 0.8, linetype = 3, size = 0.8) +
   geom_line(aes(y = fit, col = ferment_name), size = 0.8) +
   scale_colour_discrete(name = "Ferment Name") + ## edit axis title
   facet_wrap(~ ferment_name)
->>>>>>> c3a28350930658b12c3ce771c5e4da8ec59678aa
 dev.off()
