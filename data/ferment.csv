@@ -1,1 +1,13 @@
-ferment_id,ferment_name,ferment_description,start_date,ferment_days,water_grams,salt_grams,starter_ferment_id,notes1,leeks and green onions,"crispy and tangy, got even richer as it aged in the fridge",6/8/16,8,950,20,NA,2,CSA onions,"too salty, don't like the texture or taste of fermented leafy greens, threw away and did not eat",6/8/16,10,1900,41,NA,3,garlic green beans,"slightly dull and briney, no strong garlic flavor or heat from pepper",6/18/16,6,498,12,0,used starter from garlic tumeric green beans I made before I started tracking ferments4,"CSA kohlrabi, beet, and dill","kohlrabi and beet too chunky, but pleasant dill taste",7/4/16,6,194,6,2,5,homegrown chard stems,,8/6/16,,397,11,NA,6,carrots and thyme,fresh and crunchy,9/1/16,14,421,8,NA,7,carrot caraway turnip slices,,10/9/16,16,320,8,NA,8,mashed jalapeno and garlic,,10/29/16,19,0,4,NA,"pepper mash, no water added, ~2% salinity"9,corriander sauerkraut,too moldy to taste,11/17/16,11,0,NA,NA,"forgot to measure all of the things, in open jar with leaf covering; got really moldy, decided to no taste due to an abundance of caution"10,bay leaf sauerkraut,"tangy, sweet, and almost yogurt-like; really enjoy the light bay leaf flavor",10/17/16,11,0,NA,NA,"did not measure the salt, used fermenting weight in flip top jar "
+ferment_id,ferment_name,ferment_description,start_date,ferment_days,water_grams,salt_grams,starter_ferment_id,notes
+1,leeks and green onions,"crispy and tangy, got even richer as it aged in the fridge",6/8/16,8,950,20,NA,
+2,CSA onions,"too salty, don't like the texture or taste of fermented leafy greens, threw away and did not eat",6/8/16,10,1900,41,NA,
+3,garlic green beans,"slightly dull and briney, no strong garlic flavor or heat from pepper",6/18/16,6,498,12,0,used starter from garlic tumeric green beans I made before I started tracking ferments
+4,"CSA kohlrabi, beet, and dill","kohlrabi and beet too chunky, but pleasant dill taste",7/4/16,6,194,6,2,
+5,homegrown chard stems,,8/6/16,,397,11,NA,
+6,carrots and thyme,fresh and crunchy,9/1/16,14,421,8,NA,
+7,carrot caraway turnip slices,,10/9/16,16,320,8,NA,
+8,mashed jalapeno and garlic,,10/29/16,19,0,4,NA,"pepper mash, no water added, ~2% salinity"
+9,corriander sauerkraut,too moldy to taste,11/17/16,11,0,NA,NA,"forgot to measure all of the things, in open jar with leaf covering; got really moldy, decided to no taste due to an abundance of caution"
+10,bay leaf sauerkraut,"tangy, sweet, and almost yogurt-like; really enjoy the light bay leaf flavor",10/17/16,11,0,NA,NA,"did not measure the salt, used fermenting weight in flip top jar "
+11,bay leaf sauerkraut,,8/12/18,,0,NA,NA,
+,,,,,,,,
